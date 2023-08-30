@@ -10,7 +10,7 @@
     "create-send-message-command": "ts-node ./src/commands/createSendMessageCommand.ts"
   },
   "keywords": [],
-  "author": "",
+  "author": "Shahbaz Ali",
   "license": "ISC",
   "devDependencies": {
     "@types/axios": "^0.14.0",
