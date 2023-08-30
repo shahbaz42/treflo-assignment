@@ -8,16 +8,16 @@ import { ErrorHandler } from './utils';
 
 const app = express();
 app.use(morgan('dev')); // logging
-app.use(express.json({ verify: VerifyDiscordRequest(PUBLIC_KEY) }));
+app.use(express.json()); 
 
-app.get('/health', (req, res) => {
-    // for AWWS EB health check
+app.get('/health', (req, res) => { // for AWWS EB health check
     res.status(200).send('ok');
 });
-
-app.use('/', interactionRouter);
 app.use('/api', APIAccessRouter);
+app.use('/', 
+    express.json({ verify: VerifyDiscordRequest(PUBLIC_KEY) }), 
+    interactionRouter
+);
 
 app.use(ErrorHandler);
-
 export default app;
