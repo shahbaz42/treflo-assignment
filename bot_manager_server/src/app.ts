@@ -1,7 +1,11 @@
-import { PUBLIC_KEY } from './config';
 import express, {Request, Response} from 'express';
 import morgan from 'morgan';
 import { ErrorHandler } from './utils';
+import { connectToDatabase } from './database';
+
+connectToDatabase()
+    .then(() => console.log('Database connected'))
+    .catch((error) => { console.log(error) });
 
 const app = express();
 app.use(morgan('dev')); // logging
