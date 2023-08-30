@@ -1,6 +1,13 @@
 import { Request, Response, NextFunction } from 'express';
 import { sendChannelMessageTextImageButton } from '../utils/discordServerUtil';
 
+/**
+ * This controller sends a message to the respective channel
+ * @param req Express.Request
+ * @param res Express.Response
+ * @param next Express.NextFunction
+ * @returns 
+ */
 export const sendMessageToChannelController = async (req: Request, res: Response, next: NextFunction) => {
     const {
         channelId,

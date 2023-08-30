@@ -1,5 +1,12 @@
 import { Request, Response, NextFunction } from 'express';
 
+/**
+ * This is the error handler middleware it handles all the errors, If NODE_ENV is dev then it will send the stack trace
+ * @param err error object
+ * @param req Express.Request
+ * @param res Express.Response
+ * @param next Express.NextFunction
+ */
 const ErrorHandler = (err: any, req: Request, res: Response, next: NextFunction): void => {
     const errStatus: number = err.status || 500;
     const errMsg: string = err.message || 'Something went wrong';

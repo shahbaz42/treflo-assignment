@@ -6,6 +6,12 @@ interface DiscordOptions {
     method?: string;
 }
 
+/**
+ * This function makes a request to the Discord API
+ * @param endpoint endpoint to make the request to
+ * @param options DiscordOptions
+ * @returns 
+ */
 const DiscordRequest = async (
     endpoint: string,
     options: DiscordOptions
@@ -35,6 +41,11 @@ const DiscordRequest = async (
     }
 };
 
+/**
+ * This function installs global commands for the bot
+ * @param appId APP ID of the bot
+ * @param commands Array of commands to install
+ */
 const InstallGlobalCommands = async (appId: string, commands: any[]) => {
     // API endpoint to overwrite global commands
     const endpoint = `applications/${appId}/commands`;
