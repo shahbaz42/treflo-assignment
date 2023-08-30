@@ -61,7 +61,7 @@ export const VerifyDiscordRequest= (clientKey: string) => {
 
 /**
  * Sends a message to a Discord channel with an embed and a button.
- * @param channelObject - The Discord channel object to send the message to.
+ * @param channelId - The Discord channel id to send the message to.
  * @param text - The text to include in the message.
  * @param imageUrl - The URL of the image to include in the message.
  * @param buttonText - The text to display on the button.
