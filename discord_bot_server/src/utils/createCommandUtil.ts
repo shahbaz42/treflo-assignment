@@ -1,4 +1,4 @@
-import 'dotenv/config';
+import { DISCORD_TOKEN } from '../config';
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 
 interface DiscordOptions {
@@ -20,7 +20,7 @@ const DiscordRequest = async (
         url,
         data: options.body,
         headers: {
-          Authorization: `Bot ${process.env.DISCORD_TOKEN}`,
+          Authorization: `Bot ${DISCORD_TOKEN}`,
           'Content-Type': 'application/json; charset=UTF-8',
           'User-Agent': 'DiscordBot (https://github.com/discord/discord-example-app, 1.0.0)',
         },
