@@ -3,6 +3,8 @@ import express from 'express';
 import morgan from 'morgan';
 import { VerifyDiscordRequest } from './utils';
 import { interactionRouter } from './router';
+import { APIAccessRouter } from './router';
+import { ErrorHandler } from './utils';
 
 const app = express();
 app.use(morgan('dev')); // logging
@@ -14,5 +16,8 @@ app.get('/health', (req, res) => {
 });
 
 app.use('/', interactionRouter);
+app.use('/api', APIAccessRouter);
+
+app.use(ErrorHandler);
 
 export default app;

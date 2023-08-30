@@ -5,3 +5,4 @@ export {
     VerifyDiscordRequest,
 } from './discordServerUtil';
 export { getOptionValue } from './helperUtil';
+export { ErrorHandler } from './errorHandlerUtil';
