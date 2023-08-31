@@ -3,6 +3,7 @@ import morgan from 'morgan';
 import { ErrorHandler } from './utils';
 import { connectToDatabase } from './database';
 import { recordRouter } from './router';
+import { botRouter } from './router';
 
 connectToDatabase()
     .then(() => console.log('Database connected'))
@@ -17,6 +18,7 @@ app.get('/health', (req: Request, res: Response) => { // for AWWS EB health chec
 });
 
 app.use('/api/record', recordRouter);
+app.use('/api/bot', botRouter);
 
 app.use(ErrorHandler);
 export default app;
