@@ -7,8 +7,9 @@ This repository contains the codebase and documentation for a Discord Bot and Ba
 - **Hosting Link**: [https://treflo-discord-bot.shahbaz.tech](https://treflo-discord-bot.shahbaz.tech)
 >The servers are hosted on a **AWS EC2** instance. using **Docker** and **Docker Compose** behing a **Nginx** reverse proxy.
 - **Postman Documentation**: [API Documentation](https://documenter.getpostman.com/view/23141290/2s9Y5crzAC)
-
 - **YouTube Video**: [Watch Video](https://www.youtube.com/watch?v=CiI8NrTytJY)
+- **Add bot to your server**: [Add Bot](https://discord.com/api/oauth2/authorize?client_id=1146215496367210637&permissions=2147486720&scope=applications.commands%20bot)
+- **Discord Server**: [Join Server](https://discord.gg/Xq75tY9V)
 
 ## Server 1: Discord Bot Server
 
