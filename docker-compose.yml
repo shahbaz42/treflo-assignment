@@ -4,7 +4,7 @@ services:
     build: ./bot_manager_server
     command: npm start
     ports:
-      - "3000:3000"
+      - "8004:8004"
     networks:
       - app-network
   discord_bot_server:
