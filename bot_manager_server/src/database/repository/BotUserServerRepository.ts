@@ -1,0 +1,56 @@
+import { Model } from 'mongoose';
+import { BotUserDocument, BotServerDocument } from '../models';
+
+export class BotUserServerRepository {
+    constructor(
+        private botUserModel: Model<BotUserDocument>,
+        private botServerModel: Model<BotServerDocument>
+    ) {}
+
+    async addRecord(
+        user_id: string,
+        user_name: string,
+        server_id: string,
+        server_name: string
+    ): Promise<void> {
+        return new Promise<void>(
+            async (resolve: () => void, reject: (error: any) => void) => {
+                try {
+                    // Find or create the BotServer
+                    let botServer: BotServerDocument | null = await this.botServerModel.findOne({
+                        server_id,
+                    });
+                    if (!botServer) {
+                        botServer = new this.botServerModel({
+                            server_id,
+                            server_name,
+                        });
+                        await botServer.save();
+                    }
+
+                    // Find or create the BotUser
+                    let botUser: BotUserDocument | null = await this.botUserModel.findOne({ user_id });
+                    if (!botUser) {
+                        botUser = new this.botUserModel({ user_id, user_name });
+                    } 
+                    
+                    // Check if the server already exists in the bot_servers array
+                    const serverExists: boolean = botUser.bot_servers.some(
+                        (server) => server+"" === botServer._id+""
+                    );
+
+                    // If the server doesn't exist, push it to the bot_servers array
+                    if (!serverExists) {
+                        botUser.bot_servers.push(botServer);
+                    }
+
+                    // Save the changes
+                    await botUser.save();
+                    resolve();
+                } catch (error: any) {
+                    reject(error);
+                }
+            }
+        );
+    }
+}
