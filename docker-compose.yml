@@ -1,0 +1,16 @@
+version: "3"
+services:
+  bot_manager_server:
+    build: ./bot_manager_server
+    command: npm start
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+  discord_bot_server:
+    build: ./discord_bot_server
+    command: npm start
+    networks:
+      - app-network
+networks:
+  app-network:
