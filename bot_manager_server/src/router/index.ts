@@ -1,0 +1,1 @@
+export { default as recordRouter } from './recordRouter';
