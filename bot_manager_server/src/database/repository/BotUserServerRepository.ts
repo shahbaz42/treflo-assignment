@@ -1,12 +1,23 @@
 import { Model } from 'mongoose';
 import { BotUserDocument, BotServerDocument } from '../models';
 
+/**
+ * This class is responsible for handling the BotUserServerRepository
+ */
 export class BotUserServerRepository {
     constructor(
         private botUserModel: Model<BotUserDocument>,
         private botServerModel: Model<BotServerDocument>
     ) {}
-
+    
+    /**
+     * THis method adds a User Server record to the database
+     * @param user_id users discord id
+     * @param user_name users discord name
+     * @param server_id discord server id
+     * @param server_name discord server name
+     * @returns 
+     */
     async addRecord(
         user_id: string,
         user_name: string,
@@ -53,4 +64,23 @@ export class BotUserServerRepository {
             }
         );
     }
+
+    /**
+     * This method returns a list  of all users and servers the used the bot
+     * @returns Promise<BotUserDocument[]>
+     */
+    async getAllRecords(): Promise<BotUserDocument[]> {
+        return new Promise<BotUserDocument[]>(
+            async (resolve: (users: BotUserDocument[]) => void, reject: (error: any) => void) => {
+                try {
+                    const users: BotUserDocument[] = await this.botUserModel.find().populate('bot_servers');
+                    resolve(users);
+                } catch (error: any) {
+                    reject(error);
+                }
+            }
+        );
+    }
 }
+
+
