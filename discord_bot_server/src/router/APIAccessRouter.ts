@@ -2,12 +2,13 @@ import express, { Request, Response } from 'express';
 import { sendMessageToChannelController } from '../controllers';
 import { body } from 'express-validator';
 import { validateRequest } from '../utils';
+import { authMiddleware } from '../middlewares';
 
 const router = express.Router();
 
 // Below route will be behind the bot_manager_server so that only the bot_manager_server can access it
-router.post(
-    '/send-message',
+router.post('/send-message',
+    authMiddleware,
     [
         body('channelId').exists().withMessage('Channel ID is required'),
         body('text').exists().withMessage('Text is required'),
