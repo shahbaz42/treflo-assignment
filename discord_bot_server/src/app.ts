@@ -8,14 +8,14 @@ import { ErrorHandler } from './utils';
 
 const app = express();
 app.use(morgan('dev')); // logging
-app.use(express.json()); 
+app.use(express.json({ verify: VerifyDiscordRequest(PUBLIC_KEY) }));
 
 app.get('/health', (req: Request, res: Response) => { // for AWS EB health check
     res.status(200).send('ok');
 });
 app.use('/api', APIAccessRouter);
-app.use('/', 
-    express.json({ verify: VerifyDiscordRequest(PUBLIC_KEY) }), 
+
+app.use('/interactions',  
     interactionRouter
 );
 

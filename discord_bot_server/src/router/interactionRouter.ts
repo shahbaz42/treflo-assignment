@@ -3,6 +3,6 @@ import { interactionController } from '../controllers';
 
 const router = express.Router();
 
-router.post('/interactions', interactionController );
+router.post('/', interactionController );
 
 export default router;
