@@ -23,9 +23,9 @@ export class BotUserServerRepository {
         user_name: string,
         server_id: string,
         server_name: string
-    ): Promise<void> {
-        return new Promise<void>(
-            async (resolve: () => void, reject: (error: any) => void) => {
+    ): Promise<BotUserDocument> {
+        return new Promise<BotUserDocument>(
+            async (resolve: (botUserDoc: BotUserDocument) => void , reject: (error: any) => void) => {
                 try {
                     // Find or create the BotServer
                     let botServer: BotServerDocument | null = await this.botServerModel.findOne({
@@ -57,7 +57,7 @@ export class BotUserServerRepository {
 
                     // Save the changes
                     await botUser.save();
-                    resolve();
+                    resolve(botUser);
                 } catch (error: any) {
                     reject(error);
                 }

@@ -16,7 +16,7 @@ app.get('/health', (req: Request, res: Response) => { // for AWWS EB health chec
     res.status(200).send('ok');
 });
 
-app.use('/record', recordRouter);
+app.use('/api/record', recordRouter);
 
 app.use(ErrorHandler);
 export default app;
