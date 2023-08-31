@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
-import { DISCORD_BOT_SERVER_API_KEY } from '../config';
+import { BOT_MANAGER_SERVER_API_KEY } from '../config';
 import { APIError } from '../utils';
 
 /**
@@ -19,7 +19,7 @@ export const authMiddleware = (req: Request, res: Response, next: NextFunction) 
             throw err;
         }
         
-        if (token !== DISCORD_BOT_SERVER_API_KEY) {
+        if (token !== BOT_MANAGER_SERVER_API_KEY) {
             const err: APIError = new Error('UnAuthorized: Incorrect API Key');
             err.status = 401;
             throw err;

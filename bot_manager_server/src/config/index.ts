@@ -11,3 +11,4 @@ export const PORT = process.env.PORT || 3000;
 export const DB_URI = process.env.DB_URI || "";
 export const DISCORD_BOT_SERVER_ENDPOINT = process.env.DISCORD_BOT_SERVER_ENDPOINT || "";
 export const DISCORD_BOT_SERVER_API_KEY = process.env.DISCORD_BOT_SERVER_API_KEY || "";
+export const BOT_MANAGER_SERVER_API_KEY = process.env.BOT_MANAGER_SERVER_API_KEY || "";
