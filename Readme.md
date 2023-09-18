@@ -4,7 +4,7 @@ This repository contains the codebase and documentation for a Discord Bot and Ba
 
 ## Hosting and Documentation Links
 
-- **Hosting Link**: [https://treflo-discord-bot.shahbaz.tech](https://treflo-discord-bot.shahbaz.tech)
+- **Hosting Link**: [https://treflo-discord-bot.shahbaz.tech](https://treflo-discord-bot.shahbaz.tech/health)
 >The servers are hosted on a **AWS EC2** instance. using **Docker** and **Docker Compose** behind an **Nginx**.
 - **Postman Documentation**: [API Documentation](https://documenter.getpostman.com/view/23141290/2s9Y5crzAC)
 - **YouTube Video**: [Watch Video](https://www.youtube.com/watch?v=CiI8NrTytJY)
